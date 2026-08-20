@@ -1,0 +1,759 @@
+/* =========================================================
+   MUKUNTHANA'S BIRTHDAY WEBSITE
+   A little corner of the internet made with love 💗
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   BASIC RESET
+   --------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+
+    color: #5b3048;
+
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.8), transparent 25%),
+        radial-gradient(circle at 90% 20%, rgba(255, 190, 220, 0.7), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(255, 210, 230, 0.8), transparent 35%),
+        linear-gradient(135deg, #ffe8f1, #ffd1e4, #fbc7dc);
+
+    overflow-x: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   SOFT BACKGROUND GLOW
+   --------------------------------------------------------- */
+
+body::before {
+    content: "";
+    position: fixed;
+
+    width: 400px;
+    height: 400px;
+
+    top: -150px;
+    left: -150px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    bottom: -150px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 120, 180, 0.18);
+
+    filter: blur(30px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
+
+header {
+    min-height: 85vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 50px 25px;
+
+    position: relative;
+}
+
+header::before {
+    content: "♡";
+    position: absolute;
+
+    top: 12%;
+    left: 12%;
+
+    font-size: 4rem;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    animation: floatHeart 5s ease-in-out infinite;
+}
+
+header::after {
+    content: "♡";
+    position: absolute;
+
+    bottom: 15%;
+    right: 12%;
+
+    font-size: 3rem;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    animation: floatHeart 6s ease-in-out infinite reverse;
+}
+
+header p:first-child {
+    font-family: "Trebuchet MS", sans-serif;
+
+    font-size: 1rem;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: #b94f7c;
+
+    margin-bottom: 20px;
+
+    animation: fadeUp 1s ease forwards;
+}
+
+header h1 {
+    max-width: 900px;
+
+    font-size: clamp(2.5rem, 8vw, 6rem);
+
+    line-height: 1.05;
+
+    color: #9d285d;
+
+    text-shadow:
+        0 3px 10px rgba(150, 40, 90, 0.15),
+        0 0 30px rgba(255, 255, 255, 0.7);
+
+    animation: titleAppear 1.5s ease forwards;
+}
+
+header p:last-child {
+    max-width: 600px;
+
+    margin-top: 30px;
+
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+
+    line-height: 1.8;
+
+    color: #74435b;
+
+    animation: fadeUp 1.5s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   MAIN
+   --------------------------------------------------------- */
+
+main {
+    width: min(1000px, 92%);
+
+    margin: auto;
+
+    padding-bottom: 80px;
+}
+
+
+/* ---------------------------------------------------------
+   SECTIONS / GLASS CARDS
+   --------------------------------------------------------- */
+
+section {
+    position: relative;
+
+    margin: 35px auto;
+
+    padding: clamp(30px, 6vw, 60px);
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        0 20px 60px rgba(139, 45, 90, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 30px 70px rgba(139, 45, 90, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+section h2 {
+    color: #a52f64;
+
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+
+    margin-bottom: 25px;
+}
+
+section h3 {
+    margin-top: 30px;
+
+    color: #a52f64;
+
+    font-size: 1.35rem;
+
+    line-height: 1.6;
+}
+
+section p {
+    max-width: 700px;
+
+    margin: 15px auto;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    font-size: 1.05rem;
+
+    line-height: 1.9;
+
+    color: #704258;
+}
+
+
+/* ---------------------------------------------------------
+   PHOTO
+   --------------------------------------------------------- */
+
+#birthday-photo {
+    padding-top: 55px;
+    padding-bottom: 55px;
+}
+
+#birthday-photo img {
+    display: block;
+
+    width: min(330px, 80vw);
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    margin: 35px auto 10px;
+
+    border-radius: 50%;
+
+    border: 8px solid rgba(255, 255, 255, 0.85);
+
+    box-shadow:
+        0 0 0 5px rgba(245, 137, 181, 0.35),
+        0 20px 50px rgba(130, 40, 85, 0.25),
+        0 0 50px rgba(255, 170, 210, 0.6);
+
+    animation: photoGlow 4s ease-in-out infinite;
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+#birthday-photo img:hover {
+    transform: scale(1.04) rotate(1deg);
+
+    box-shadow:
+        0 0 0 7px rgba(245, 137, 181, 0.4),
+        0 25px 70px rgba(130, 40, 85, 0.3),
+        0 0 70px rgba(255, 170, 210, 0.8);
+}
+
+
+/* ---------------------------------------------------------
+   MESSAGE
+   --------------------------------------------------------- */
+
+#birthday-message {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.58),
+            rgba(255, 226, 238, 0.48)
+        );
+}
+
+#birthday-message p {
+    font-size: 1.08rem;
+}
+
+
+/* ---------------------------------------------------------
+   COMPLIMENT
+   --------------------------------------------------------- */
+
+#compliment {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 235, 245, 0.6),
+            rgba(255, 255, 255, 0.5)
+        );
+}
+
+#compliment h2 {
+    font-size: clamp(1.8rem, 5vw, 2.7rem);
+}
+
+#compliment p:first-of-type {
+    font-style: italic;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 1.2rem;
+
+    color: #873a5d;
+}
+
+
+/* ---------------------------------------------------------
+   BIRTHDAY WISH
+   --------------------------------------------------------- */
+
+#birthday-wish {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.7),
+            rgba(255, 210, 230, 0.45)
+        );
+}
+
+#birthday-wish h2:last-child {
+    margin-top: 35px;
+
+    font-size: clamp(1.8rem, 5vw, 3rem);
+
+    color: #a62560;
+
+    animation: gentlePulse 3s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   SURPRISE SECTION
+   --------------------------------------------------------- */
+
+#surprise {
+    padding: 60px 30px;
+
+    overflow: hidden;
+}
+
+#surprise::before,
+#surprise::after {
+    content: "♡";
+
+    position: absolute;
+
+    color: rgba(205, 70, 130, 0.15);
+
+    pointer-events: none;
+}
+
+#surprise::before {
+    font-size: 10rem;
+
+    left: -30px;
+    bottom: -70px;
+}
+
+#surprise::after {
+    font-size: 7rem;
+
+    right: 10px;
+    top: -50px;
+}
+
+#surpriseButton {
+    border: none;
+
+    margin-top: 25px;
+
+    padding: 18px 35px;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e85b94,
+            #c83f76
+        );
+
+    box-shadow:
+        0 10px 25px rgba(190, 50, 110, 0.25),
+        0 0 25px rgba(255, 150, 200, 0.45);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#surpriseButton:hover {
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 15px 35px rgba(190, 50, 110, 0.35),
+        0 0 40px rgba(255, 150, 200, 0.7);
+}
+
+#surpriseButton:active {
+    transform: scale(0.96);
+}
+
+
+/* ---------------------------------------------------------
+   MUSIC
+   --------------------------------------------------------- */
+
+#music {
+    padding-bottom: 45px;
+}
+
+#music p:last-child {
+    font-style: italic;
+
+    color: #a24a70;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+footer {
+    padding: 60px 20px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.5);
+}
+
+footer p {
+    margin: 10px;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    color: #87435f;
+
+    line-height: 1.6;
+}
+
+footer p:first-child {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 1.2rem;
+
+    color: #a52f64;
+}
+
+
+/* ---------------------------------------------------------
+   FLOATING HEART ANIMATION
+   --------------------------------------------------------- */
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   TITLE ANIMATION
+   --------------------------------------------------------- */
+
+@keyframes titleAppear {
+
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   FADE UP
+   --------------------------------------------------------- */
+
+@keyframes fadeUp {
+
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   PHOTO GLOW
+   --------------------------------------------------------- */
+
+@keyframes photoGlow {
+
+    0% {
+        box-shadow:
+            0 0 0 5px rgba(245, 137, 181, 0.3),
+            0 20px 50px rgba(130, 40, 85, 0.2),
+            0 0 40px rgba(255, 170, 210, 0.4);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 8px rgba(245, 137, 181, 0.4),
+            0 20px 55px rgba(130, 40, 85, 0.25),
+            0 0 70px rgba(255, 170, 210, 0.75);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 5px rgba(245, 137, 181, 0.3),
+            0 20px 50px rgba(130, 40, 85, 0.2),
+            0 0 40px rgba(255, 170, 210, 0.4);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   GENTLE PULSE
+   --------------------------------------------------------- */
+
+@keyframes gentlePulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.025);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   PHONE RESPONSIVENESS
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    header {
+        min-height: 75vh;
+
+        padding: 40px 18px;
+    }
+
+    header::before {
+        left: 5%;
+        font-size: 2.5rem;
+    }
+
+    header::after {
+        right: 5%;
+        font-size: 2rem;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    section {
+        margin: 25px auto;
+
+        padding: 35px 20px;
+
+        border-radius: 25px;
+    }
+
+    section p {
+        font-size: 0.98rem;
+
+        line-height: 1.8;
+    }
+
+    #birthday-photo img {
+        width: min(280px, 75vw);
+    }
+
+    #surpriseButton {
+        width: 90%;
+
+        padding: 16px 20px;
+    }
+
+    footer {
+        padding: 45px 15px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   ACCESSIBILITY
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+
+/* =========================================================
+   BIRTHDAY MUSIC PLAYER 🎵
+   ========================================================= */
+
+.music-player {
+    max-width: 650px;
+
+    margin: 30px auto 0;
+
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255, 255, 255, 0.55);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 15px 40px rgba(150, 50, 100, 0.12);
+}
+
+.music-icon {
+    font-size: 3rem;
+
+    animation: musicFloat 2s ease-in-out infinite;
+}
+
+.music-info h3 {
+    margin-bottom: 5px;
+
+    color: #a52f64;
+}
+
+.music-info p {
+    margin: 0;
+
+    font-size: 0.95rem;
+}
+
+#birthdayMusic {
+    width: 100%;
+
+    margin-top: 10px;
+}
+
+@keyframes musicFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
